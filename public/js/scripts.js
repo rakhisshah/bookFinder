@@ -22,7 +22,7 @@ function finfBook(){
             var div =document.createElement('div');
             div.className='media-body';
             //create header for body
-            var header=document.createElement('h5');
+            var header=document.createElement('h2');
             header.className='mt-0';
             header.innerHTML=book.items[i].volumeInfo.title;
             //append header to the body
@@ -32,17 +32,40 @@ function finfBook(){
             wrapperDiv.appendChild(div);
             //create h6 element for author
             var author=document.createElement('h6');
-            author.innerHTML=book.items[i].volumeInfo.authors;
+            author.innerHTML='<b>Author:</b>'+ ' ' + book.items[i].volumeInfo.authors;
             div.appendChild(author);
+             //create paragraph for country
+             var country=document.createElement('p');
+             country.innerHTML='<b>Country:</b>' + ' ' + book.items[i].accessInfo.country;
+             div.appendChild(country);
+
+             //create pragraph for page count
+             var pageCount=document.createElement('p');
+             pageCount.innerHTML='<b>Pages:</b>'+ ' '+ book.items[i].volumeInfo.pageCount;
+             div.appendChild(pageCount);
+  
+             //create ement for  published date
+             var publishedYear=document.createElement('p');
+             publishedYear.innerHTML='<b>Piblished:</b>' + ' ' +book.items[i].volumeInfo.publishedDate;
+             div.appendChild(publishedYear);
+            //create element for publisher
+            var publisher=document.createElement('p');
+            publisher.innerHTML='<b>Publisher:</b>' + ' ' +book.items[i].volumeInfo.publisher;
+            div.appendChild(publisher);
+
             //create element for description
             var desc=document.createElement('p');
             desc.innerHTML=book.items[i].volumeInfo.description;
             div.appendChild(desc);
+            
+            //create a tag to target book link
+            var link=document.createElement('a');
+            link.innerHTML='View More';
+            link.href=book.items[i].volumeInfo.previewLink;
+            div.appendChild(link);
+           
 
-            //create paragraph for country
-            var country=document.createElement('p');
-            country.innerHTML='Country:' + ' ' + book.items[i].accessInfo.country;
-            div.appendChild(country);
+           
 
 
              //create hr to seprate every books info
