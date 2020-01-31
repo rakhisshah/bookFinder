@@ -6,12 +6,12 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine','handlebars');
 app.use(express.static('public'));
-const port=3000;
+const port=process.env.port || 3000;
 app.get('/',(req,res)=>{
     res.render('home');
 });
 
 app.listen(port,()=>{
-    console.log('server is running on port') + port;
+    console.log('server is running on port '+port);
 
 })
